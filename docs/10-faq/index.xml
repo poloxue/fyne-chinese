@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>常见问题 on Go Fyne 中文</title><link>https://gofyne.poloxue.com/docs/10-faq/</link><description>Recent content in 常见问题 on Go Fyne 中文</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="https://gofyne.poloxue.com/docs/10-faq/index.xml" rel="self" type="application/rss+xml"/><item><title>01. 布局与控件大小</title><link>https://gofyne.poloxue.com/docs/10-faq/01-layout/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/10-faq/01-layout/</guid><description>布局与控件大小 # 移动和调整大小 # 问：我如何将我的小部件移动到不同的位置或调整其大小？
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>常见问题 on Go Fyne 中文</title><link>https://gofyne.poloxue.com/docs/10-faq/</link><description>Recent content in 常见问题 on Go Fyne 中文</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="https://gofyne.poloxue.com/docs/10-faq/index.xml" rel="self" type="application/rss+xml"/><item><title>01. 布局与控件大小</title><link>https://gofyne.poloxue.com/docs/10-faq/01-layout/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/10-faq/01-layout/</guid><description>布局与控件大小 # 移动和调整大小 # 问：我如何将我的控件移动到不同的位置或调整其大小？
 答： Fyne 应用中元素的位置和大小由它们所在的容器的布局控制。如果你的 UI 元素太小，请考虑使用不同的 布局或容器。
 一个新的Window会扩展传递给SetContent()的任何元素以填满它的大小。每次你向此添加一个容器时，它都会根据布局划分可用空间。像HBox和VBox这样的布局会将内容缩小到其MinSize()以在一个或另一个维度上打包内容。像Max或Border这样的布局会扩展内容以填充空间。通过编写 自定义布局，你可以完全控制容器中的项目。
 问：我的图像为什么这么小？
@@ -6,11 +6,11 @@
 由于这种复杂性，使用canvas.NewImageFromFile()或类似调用加载的图像将不会设置大小，导致它非常小或默认情况下看起来被隐藏。当放置在适当的布局中时，图像将根据其FillMode属性进行拉伸。如果你希望图像始终设置为特定大小（或更大），你可以调用Image.SetMinSize()并为图像指定一个与设备无关的大小。
 容器和布局 # 问：我如何手动控制元素的位置
 答： 在某些情况下，你可能希望完全控制容器中元素的位置和大小。为此，你创建一个没有布局的容器。container.NewWithoutLayout()函数将创建一个用于手动定位的容器——你应该将你想要在这个容器中管理的图形元素列表传递给该构造函数。
-设置好后，你可以使用Move()和Resize()在每个元素上进行定位。在执行此操作时，请注意，它不会随着可用空间的变化而调整——它也没有明确的最小尺寸。要添加这些功能中的任何一个，你应该用 自定义布局替换你的手动定位。</description></item><item><title>02. 主题与自定义</title><link>https://gofyne.poloxue.com/docs/10-faq/02-theme/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/10-faq/02-theme/</guid><description>主题与自定义 # 在这个页面上，我们回答了一些关于Fyne主题和小部件设计的常见问题。
-自定义 # 问：如何更改Label小部件文本的颜色？
-答： 所有标准小部件都使用当前的Theme定义来设置颜色、字体和大小。要对你的应用程序进行更改，请考虑使用 自定义主题。
+设置好后，你可以使用Move()和Resize()在每个元素上进行定位。在执行此操作时，请注意，它不会随着可用空间的变化而调整——它也没有明确的最小尺寸。要添加这些功能中的任何一个，你应该用 自定义布局替换你的手动定位。</description></item><item><title>02. 主题与自定义</title><link>https://gofyne.poloxue.com/docs/10-faq/02-theme/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/10-faq/02-theme/</guid><description>主题与自定义 # 在这个页面上，我们回答了一些关于Fyne主题和控件设计的常见问题。
+自定义 # 问：如何更改Label控件文本的颜色？
+答： 所有标准控件都使用当前的Theme定义来设置颜色、字体和大小。要对你的应用程序进行更改，请考虑使用 自定义主题。
 如果你的应用程序需要不同颜色的文本，可以使用canvas.Text类型代替。这允许直接设置文本的颜色和大小。在执行此操作时要小心，因为用户可以在浅色或深色主题变体之间选择，所以你应该在两种情况下都进行测试。
-问：如何从我的Entry小部件中移除背景颜色？
+问：如何从我的Entry控件中移除背景颜色？
 答： 输入背景是由主题的InputBackground颜色设置的。你可以将其更改为color.Transparent以移除所有输入背景框。不可能编辑单个输入元素的样式——主题API旨在提供可自定义的，但一致的设计。
 主题API # 问：如何使用我在v2.0.0之前编写的自定义主题？
 答： 随着时间的推移，你应该考虑更新使用新的主题API。然而，它是可能的在过渡时期使用一个简单的适配器来允许旧主题的使用。你会发现theme.FromLegacy函数，可以将旧的主题实例适配到新的API。
