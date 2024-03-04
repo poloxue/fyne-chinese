@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>快速开始 on Go Fyne 中文</title><link>https://gofyne.poloxue.com/docs/01-started/</link><description>Recent content in 快速开始 on Go Fyne 中文</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://gofyne.poloxue.com/docs/01-started/index.xml" rel="self" type="application/rss+xml"/><item><title>01. 安装指南</title><link>https://gofyne.poloxue.com/docs/01-started/01-index/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/01-started/01-index/</guid><description>安装指南 # 使用 Fyne 工具包构建跨平台应用程序非常简单，但在开始之前需要安装一些工具。如果您的计算机已经为Go开发设置好了，以下步骤可能不是必需的，但我们建议您阅读一下您操作系统的提示，以防万一。如果本教程后面的步骤出现问题，那么您应该重新检查以下的先决条件。
+先决条件 # Fyne需要3个基本元素：Go工具（至少版本1.12）、一个C编译器（用于与系统图形驱动连接）和一个系统图形驱动。根据您的操作系统，安装指令会有所不同，请选择下面适合您的选项卡查看安装指令。
+请注意，这些步骤仅用于开发 - 您的Fyne应用不需要为最终用户安装任何设置或依赖！
+下载 # 使用Go模块（Go 1.16及更高版本要求），在使用包之前需要设置模块。
+Go模块（适用于Go 1.16或更新版本） # 如果您不使用模块或您的模块已经初始化，可以跳过此步骤到下一个步骤。运行以下命令并将MODULE_NAME替换为您偏好的模块名（应在为您的应用程序专门创建的新文件夹中调用）。
+$ cd myapp $ go mod init MODULE_NAME 现在您需要下载Fyne模块和辅助工具。使用以下命令完成：
+$ go get fyne.io/fyne/v2@latest $ go install fyne.io/fyne/v2/cmd/fyne@latest 如果您不确定Go模块如何工作，考虑阅读[教程：创建一个Go模块]。
+旧版Go安装 # 使用旧版Go发布安装Fyne工具包和辅助工具，只需执行go get命令：
+$ go get fyne.io/fyne/v2 $ go get fyne.io/fyne/v2/cmd/fyne 检查您的安装 # 在编写应用或运行示例之前，您可以使用Fyne安装工具检查您的安装。只需从链接下载适合您计算机的应用并运行它，您应该看到类似以下屏幕的内容：
+如果您的安装有任何问题，请查看故障排除部分以获取提示。
+运行演示 # 如果您在开始编写自己的应用程序之前想看看Fyne工具包的实际运行情况，您可以通过执行以下命令在您的计算机上运行我们的演示应用：
+$ go run fyne.io/fyne/v2/cmd/fyne_demo@latest 请注意，首次运行需要编译一些C代码，因此可能比平时需要更长的时间。后续构建会重用缓存，将会快得多。
+旧版Go版本 # 要在旧版Go上运行演示，只需执行以下命令：
+$ go run fyne.io/fyne/v2/cmd/fyne_demo 安装 # 如果您愿意，您也可以使用以下命令安装演示（需要Go 1.</description></item><item><title>02. 创建第一个应用</title><link>https://gofyne.poloxue.com/docs/01-started/02-hello/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/01-started/02-hello/</guid><description>第一个应用 # 在完成了入门文档中的步骤后，你现在已经准备好构建你的第一个应用程序了。为了说明这个过程，我们将构建一个简单的“Hello World”应用程序。
+一个简单的应用程序从使用app.New()创建一个应用实例开始，然后使用app.NewWindow()打开一个窗口。接着定义一个小部件树，并使用窗口上的SetContent()将其设置为主内容。然后通过在窗口上调用ShowAndRun()来显示应用UI。
+package main import ( &amp;#34;fyne.io/fyne/v2/app&amp;#34; &amp;#34;fyne.io/fyne/v2/widget&amp;#34; ) func main() { a := app.New() w := a.NewWindow(&amp;#34;Hello World&amp;#34;) w.SetContent(widget.NewLabel(&amp;#34;Hello World!&amp;#34;)) w.ShowAndRun() } 上面的代码可以使用命令go build .进行构建，然后通过运行hello命令或双击图标来执行。你也可以跳过编译步骤，直接使用go run ..来运行代码。
+无论采取哪种方法，都会显示一个窗口，看起来像这样：
+Hello Window
+如果你更喜欢浅色主题，只需设置环境变量FYNE_THEME=light，你就会得到：
+Hello Light Theme
+这就是入门的全部内容了。要了解更多，你可以阅读完整的API文档。</description></item><item><title>03. 运行 Fyne Demo</title><link>https://gofyne.poloxue.com/docs/01-started/03-demo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/01-started/03-demo/</guid><description>运行 Fyne Demo # 如果你想在开始编写自己的应用程序之前看到Fyne工具包的实际效果，你可以查看我们的演示应用程序。
+运行 # 如果愿意，你可以使用以下命令直接运行演示（需要Go 1.16或更高版本）：
+go run fyne.io/fyne/v2/cmd/fyne_demo@latest 对于早期版本的Go，你需要使用以下命令：
+go run fyne.io/fyne/v2/cmd/fyne_demo 通过浏览应用的不同标签，你可以看到Fyne工具包的所有功能。
+安装 # 你可以将该应用安装为计算机上的图形应用程序，就像所有其他应用程序一样。我们有一个有用的fyne工具可以为你完成这项工作。首先，你需要安装该工具：
+go install fyne.io/fyne/v2/cmd/fyne@latest 之后，你可以简单地打包并安装演示应用程序：
+fyne get fyne.io/fyne/v2/cmd/fyne_demo 完成这一步骤后，你可以在应用启动器中找到“Fyne Demo”。
+探索代码 # 如果你对任何功能感兴趣，你应该查看源代码或加入社区频道之一。</description></item><item><title>04. App 和 RunLoop</title><link>https://gofyne.poloxue.com/docs/01-started/04-apprun/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/01-started/04-apprun/</guid><description>App 和 RunLoop # 对于一个图形用户界面（GUI）应用程序来说，它需要运行一个事件循环（有时被称为运行循环），来处理用户交互和绘图事件。在Fyne中，这是通过使用App.Run()或Window.ShowAndRun()函数启动的。这些函数中的一个必须在你的main()函数的设置代码末尾被调用。
+一个应用程序应该只有一个运行循环，因此你应该在代码中只调用Run()一次。第二次调用它将会导致错误。
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;fyne.io/fyne/v2/app&amp;#34; &amp;#34;fyne.io/fyne/v2/widget&amp;#34; ) func main() { myApp := app.New() myWindow := myApp.NewWindow(&amp;#34;Hello&amp;#34;) myWindow.SetContent(widget.NewLabel(&amp;#34;Hello&amp;#34;)) myWindow.Show() myApp.Run() tidyUp() } func tidyUp() { fmt.Println(&amp;#34;Exited&amp;#34;) } 对于桌面运行时，一个应用程序可以通过调用App.Quit()直接退出（移动应用不支持此功能）- 通常在开发者代码中不需要。一旦所有窗口都被关闭，应用程序也将退出。另外，请注意，在应用程序退出之前，执行Run()之后的函数将不会被调用。</description></item><item><title>05. 更新 GUI 内容</title><link>https://gofyne.poloxue.com/docs/01-started/05-updating/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/01-started/05-updating/</guid><description>更新 GUI 内容 # 在完成了Hello World教程或其他示例之后，你将创建一个基本的用户界面。在这个页面中，我们将看到如何从代码中更新GUI的内容。
+第一步是将你想要更新的小部件赋值给一个变量。在Hello World教程中，我们直接将widget.NewLabel传递给SetContent()，为了更新它，我们将其更改为两行不同的代码，例如：
+clock := widget.NewLabel(&amp;#34;&amp;#34;) w.SetContent(clock) 一旦内容被赋值给一个变量，我们就可以调用像SetText(&amp;quot;new text&amp;quot;)这样的函数。在我们的示例中，我们将使用Time.Format的帮助，将标签的内容设置为当前时间。
+formatted := time.Now().Format(&amp;#34;Time: 03:04:05&amp;#34;) clock.SetText(formatted) 这就是我们需要做的，以改变一个可见项的内容（见下面的完整代码）。然而，我们可以进一步定期更新内容。
+在后台运行 # 大多数应用程序都需要在后台运行进程，例如下载数据或响应事件。为了模拟这一点，我们将扩展上述代码，使其每秒运行一次。
+像大多数Go代码一样，我们可以创建一个goroutine（使用go关键字）并在那里运行我们的代码。如果我们将文本更新代码移动到一个新函数中，它可以在初始显示以及定期更新时被调用。通过组合goroutine和time.Tick在一个for循环中，我们可以每秒更新标签。
+go func() { for range time.Tick(time.Second) { updateTime(clock) } }() 将这段代码放在ShowAndRun或Run调用之前是很重要的，因为它们在应用程序关闭之前不会返回。将所有这些结合在一起，代码将运行并每秒更新用户界面，创建一个基本的时钟小部件。完整的代码如下：
+package main import ( &amp;#34;time&amp;#34; &amp;#34;fyne.io/fyne/v2/app&amp;#34; &amp;#34;fyne.io/fyne/v2/widget&amp;#34; ) func updateTime(clock *widget.Label) { formatted := time.Now().Format(&amp;#34;Time: 03:04:05&amp;#34;) clock.SetText(formatted) } func main() { a := app.New() w := a.NewWindow(&amp;#34;Clock&amp;#34;) clock := widget.NewLabel(&amp;#34;&amp;#34;) updateTime(clock) w.SetContent(clock) go func() { for range time.</description></item><item><title>06. 窗口 Window 处理</title><link>https://gofyne.poloxue.com/docs/01-started/06-windows/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/01-started/06-windows/</guid><description>窗口 Window 处理 # 窗口是使用App.NewWindow()创建的，并需要使用Show()函数来显示。fyne.Window上的辅助方法ShowAndRun()允许你同时显示窗口并运行应用程序。
+默认情况下，窗口将通过检查MinSize()函数（在后面的示例中会有更多介绍）来显示其内容的正确大小。你可以通过调用Window.Resize()方法来设置更大的尺寸。这个方法接受一个fyne.Size，其中包含使用设备独立像素（这意味着在不同设备上将是相同的）的宽度和高度，例如，要默认使窗口正方形，我们可以这样做：
+w.Resize(fyne.NewSize(100, 100)) 请注意，桌面环境可能有限制，导致窗口小于请求的尺寸。移动设备通常会忽略这一点，因为它们只以全屏显示。
+如果你希望显示第二个窗口，你只需调用Show()函数。如果你想在应用程序启动时打开多个窗口，将Window.Show()与App.Run()分开也可能是有帮助的。下面的示例展示了如何在启动时加载两个窗口。
+package main import ( &amp;#34;fyne.io/fyne/v2&amp;#34; &amp;#34;fyne.io/fyne/v2/app&amp;#34; &amp;#34;fyne.io/fyne/v2/widget&amp;#34; ) func main() { a := app.New() w := a.NewWindow(&amp;#34;Hello World&amp;#34;) w.SetContent(widget.NewLabel(&amp;#34;Hello World!&amp;#34;)) w.Show() w2 := a.NewWindow(&amp;#34;Larger&amp;#34;) w2.SetContent(widget.NewLabel(&amp;#34;More content&amp;#34;)) w2.Resize(fyne.NewSize(100, 100)) w2.Show() a.Run() } 上述应用程序将在两个窗口都关闭时退出。如果你的应用程序安排得当，一个窗口是主窗口，其他窗口是辅助视图，你可以设置一个窗口为“主窗口”，这样如果该窗口关闭，应用程序就会退出。要做到这一点，使用Window上的SetMaster()函数。
+窗口可以在任何时候被创建，我们可以改变上面的代码，使得第二个窗口（w2）的内容是一个打开新窗口的按钮。你也可以从更复杂的工作流中加载窗口，但要小心，因为新窗口通常会出现在当前活动内容之上。
+w2.SetContent(widget.NewButton(&amp;#34;Open new&amp;#34;, func() { w3 := a.NewWindow(&amp;#34;Third&amp;#34;) w3.SetContent(widget.NewLabel(&amp;#34;Third&amp;#34;)) w3.Show() })) 这段描述说明了如何在Fyne应用程序中处理窗口，包括创建、显示、调整大小以及如何从代码中动态添加新窗口。</description></item><item><title>07. 测试 GUI 应用程序</title><link>https://gofyne.poloxue.com/docs/01-started/07-testing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/01-started/07-testing/</guid><description>测试 GUI 应用程序 # 一个好的测试套件的一部分是能够快速编写测试并定期运行它们。Fyne的API旨在使应用程序测试变得简单。通过将组件逻辑与其渲染定义分离，我们可以在不实际显示它们的情况下加载应用程序，并完全测试其功能。
+示例 # 我们可以通过扩展我们的 Hello World应用程序来演示单元测试，包括为用户输入他们的名字以便问候的空间。我们首先更新用户界面，使其包含两个元素：一个用于问候的Label和一个用于输入名字的Entry。我们使用container.NewVBox（一个垂直盒子容器）将它们一个接一个地显示。更新后的用户界面代码如下所示：
+func makeUI() (*widget.Label, *widget.Entry) { return widget.NewLabel(&amp;#34;Hello world!&amp;#34;), widget.NewEntry() } func main() { a := app.New() w := a.NewWindow(&amp;#34;Hello Person&amp;#34;) w.SetContent(container.NewVBox(makeUI())) w.ShowAndRun() } 为了测试这个输入行为，我们创建了一个新文件（以 _test.go 结尾，将其标记为测试），定义了一个TestGreeter函数。
+package main import ( &amp;#34;testing&amp;#34; ) func TestGreeting(t *testing.T) { } 我们可以添加一个验证初始状态的初始测试，为此我们测试从makeUI返回的Label的Text字段，如果它不正确，则错误测试。将以下代码添加到测试方法中：
+out, in := makeUI() if out.Text != &amp;#34;Hello world!&amp;#34; { t.Error(&amp;#34;Incorrect initial greeting&amp;#34;) } 这个测试将通过 - 接下来我们添加到测试中以验证问候者。我们使用Fyne的fyne.io/fyne/v2/test包来帮助测试场景，调用test.Type来模拟用户输入。以下测试代码将检查当输入用户姓名时输出是否更新（也确保添加了导入）：
+test.Type(in, &amp;#34;Andy&amp;#34;) if out.Text !</description></item><item><title>08. 打包桌面应用</title><link>https://gofyne.poloxue.com/docs/01-started/08-packaging/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/01-started/08-packaging/</guid><description>打包桌面应用 # 将图形应用程序打包以供分发可能会很复杂。图形应用程序通常有与它们关联的图标和元数据，以及集成到每个环境所需的特定格式。Windows可执行文件需要嵌入图标，macOS应用是捆绑包，在Linux中有各种应该安装的元数据文件。多麻烦啊！
+幸运的是，“fyne”应用有一个“package”命令可以自动处理这一切。只需指定目标操作系统和任何所需的元数据（如图标），就会生成适当的包。对于.icns或.ico图标转换将自动完成，所以只需提供.png文件 :)。你需要做的就是已经为目标平台构建了应用程序&amp;hellip;
+go install fyne.io/fyne/v2/cmd/fyne@latest fyne package -os darwin -icon myapp.png 如果你使用的是Go的旧版本（&amp;lt;1.16），你应该使用go get安装fyne
+go get fyne.io/fyne/v2/cmd/fyne fyne package -os darwin -icon myapp.png 将创建myapp.app，一个完整的捆绑结构，用于分发给macOS用户。然后你也可以为Linux和Windows版本构建&amp;hellip;
+fyne package -os linux -icon myapp.png fyne package -os windows -icon myapp.png 这些命令将创建：
+myapp.tar.gz，包含从usr/local/开始的文件夹结构，Linux用户可以将其展开到他们的系统根目录。 myapp.exe（在第二次构建后，这是Windows包所需的）将嵌入图标和应用元数据。 如果你只想在你的电脑上安装桌面应用程序，那么你可以使用有用的install子命令。例如，要将你当前的应用程序系统范围内安装，你可以简单地执行以下操作：
+fyne install -icon myapp.png 所有这些命令也支持默认图标文件Icon.png，这样你就可以避免每次执行时键入参数。从Fyne 2.1开始，还有一个 元数据文件，你可以为你的项目设置默认选项。
+当然，如果你愿意，你仍然可以使用标准的Go工具运行你的应用程序。</description></item><item><title>09. 打包移动应用</title><link>https://gofyne.poloxue.com/docs/01-started/09-mobile/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/01-started/09-mobile/</guid><description>打包移动应用 # 你的Fyne应用代码可以直接作为移动应用运行，就像它在桌面上做的那样。然而，将代码打包用于分发就复杂一些。这个页面将探索正是为了做到这一点而将你的应用带到iOS和Android上的过程。
+首先，你需要为移动打包安装更多的开发工具。对于Android构建，你必须安装Android SDK和NDK，并设置适当的环境，以便工具（如adb）可以在命令行中找到。要构建iOS应用，你需要在你的macOS电脑上安装Xcode以及命令行工具可选包。
+一旦你有了一个工作的开发环境，打包就很简单了。要为Android和iOS构建应用程序，以下命令将为你完成所有操作。确保有一个唯一的应用程序标识符，因为在你首次发布后更改这些是不明智的。
+fyne package -os android -appID com.example.myapp -icon mobileIcon.png fyne package -os ios -appID com.example.myapp -icon mobileIcon.png 在这些命令完成后（首次编译可能需要一些时间），你将在你的目录中看到两个新文件，myapp.apk和myapp.app。你会看到后者与darwin应用程序捆绑包同名 - 不要将它们混淆，因为它们在另一个平台上不会工作。
+要在你的手机或模拟器上安装Android应用，只需调用：
+adb install myapp.apk 对于iOS，要在设备上安装，打开Xcode并在“Window”菜单中选择“Devices and Simulators”菜单项。然后找到你的手机并将myapp.app图标拖到你的应用列表上。
+如果你想在模拟器上安装，请确保使用iossimulator而不是ios打包你的应用程序
+fyne package -os iossimulator -appID com.example.myapp -icon mobileIcon.png 之后，你可以如下使用命令行工具：
+xcrun simctl install booted myapp.app 这些步骤介绍了如何为iOS和Android设备打包和安装Fyne应用程序，从而使Fyne成为开发跨平台移动应用的强大工具。</description></item><item><title>10. 在浏览器中运行</title><link>https://gofyne.poloxue.com/docs/01-started/10-webapp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/01-started/10-webapp/</guid><description>在浏览器中运行 # Fyne应用程序也可以通过标准的网络浏览器在网络上运行！由于不同引擎的标准和优势各异，这稍微复杂一些。
+使用Fyne创建的网络应用将提供一个WASM运行时以及一个JavaScript代码包，这使得生成的网页可以查看当前浏览器并选择适合其优势的实现方式。这在大多数系统上提供了极好的用户体验。
+为了准备你的应用通过网络使用，我们再次使用“fyne”命令行应用，它有一个用于快速测试的“serve”命令
+go install fyne.io/fyne/v2/cmd/fyne@latest fyne serve 你会看到，过了一会儿，一个网页服务器已经在8080端口启动。只需在你的网络浏览器中打开https://localhost:8080，你就可以使用你的应用了！
+这个过程中使用的工具对Go版本非常敏感，因此可能会出现与版本不匹配相关的错误。如果你使用的是1.18版之后的Go，你应该确保你有1.18版的副本，并在你的环境中引用它，比如（对于一个基于 homebrew的安装）：
+export GOPHERJS_GOROOT=/opt/homebrew/Cellar/go@1.18/1.18.10/libexec 你可以在 GopherJS文档上了解更多相关信息。
+打包用于网络分发 # fyne serve命令非常适合本地测试，但就像其他平台一样，你也会想要能够分发你的应用。为了准备上传的文件，就像常规的 打包一样，使用fyne package命令。
+fyne package -os web 你也可以选择只为WASM或JavaScript打包，而不是自动检测设置：
+fyne package -os wasm fyne package -os js 演示 # 你可以访问 demo.fyne.io，在任何设备上测试Fyne应用的实际运行情况。
+限制 # 截至v2.4.0版本发布，网络驱动程序还没有完全完成，所以你的应用可能无法使用以下功能：
+多窗口（但对话框都可以在当前窗口内部工作） 文档和偏好设置的存储 这些问题正在被解决，并将在未来的版本中得到解决。</description></item><item><title>11. 应用元数据 Metadata</title><link>https://gofyne.poloxue.com/docs/01-started/11-metadata/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/01-started/11-metadata/</guid><description>应用元数据 Metadata # 自fyne命令v2.1.0版本发布以来，我们支持一个元数据文件，允许你在仓库中存储有关你的应用的信息。这个文件是可选的，但可以帮助避免在每个包和发布命令中记住特定的构建参数。
+文件应该命名为FyneApp.toml，位于你运行fyne命令的目录中（通常是main包）。文件的内容如下：
+Website = &amp;#34;https://example.com&amp;#34; [Details] Icon = &amp;#34;Icon.png&amp;#34; Name = &amp;#34;My App&amp;#34; ID = &amp;#34;com.example.app&amp;#34; Version = &amp;#34;1.0.0&amp;#34; Build = 1 文件的顶部部分是元数据，如果你将你的应用上传到https://apps.fyne.io列表页面时会使用，因此它是可选的。[Details]部分包含了其他应用商店和操作系统在发布过程中使用的有关你的应用的数据。如果找到了这个文件，fyne工具将会使用它，很多强制性的命令参数如果元数据存在则不是必需的。你仍然可以使用命令行参数覆盖这些值。</description></item><item><title>12. 发布到应用商店</title><link>https://gofyne.poloxue.com/docs/01-started/12-distribution/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/01-started/12-distribution/</guid><description>分发到应用商店 # 按照 打包页面所述打包图形应用程序会提供一个可以直接分享或分发的文件或捆绑包。然而，签名并上传到应用商店和市场是一个需要特定平台配置的额外步骤，我们将在这个页面中介绍。
+在这些步骤中，我们将使用fyne命令行工具的一部分新工具。fyne release步骤处理为每个商店的签名和准备，但参数因平台而异，我们将在下面看到。
+macOS AppStore（自fyne 1.4.2起） # 先决条件：
+运行macOS和Xcode的Apple mac Apple开发者账户 Mac AppStore 应用证书 Mac AppStore 安装程序证书 从 AppStore 下载的 Apple Transporter 应用 在 AppStore Connect上为要上传的构建准备好你的应用/版本。
+为发布捆绑完成的应用：
+$ fyne release -appID com.example.myapp -appVersion 1.0 -appBuild 1 -category games 将.pkg拖到Transporter上并点击“交付”。
+返回到AppStore Connect网站，选择你的构建版本进行发布，并提交审核。
+谷歌Play商店（Android） # 先决条件：
+Google Play控制台账户 分发密钥库（创建指南在 android文档） 在 Google Play控制台上为要上传的构建准备好你的应用/版本。关闭“Play应用签名”选项，因为我们自己管理它。
+为发布捆绑完成的应用：
+$ fyne release -os android -appID com.example.myapp -appVersion 1.0 -appBuild 1 将.apk文件拖到Play控制台中应用版本页面的构建投放区。
+开始新版本的推出。
+iOS AppStore（自fyne 1.</description></item><item><title>13. 跨平台编译</title><link>https://gofyne.poloxue.com/docs/01-started/13-cross-compile/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/01-started/13-cross-compile/</guid><description>跨平台编译 # 使用Go进行跨平台编译被设计得非常简单 - 我们只需设置目标操作系统的环境变量GOOS（如果目标是不同的架构，还需要设置GOARCH）。不幸的是，当使用原生图形调用时，Fyne中的CGo使用使这变得有些复杂。
+从开发计算机编译 # 要跨编译Fyne应用程序，你还必须设置CGO_ENABLED=1，这告诉go启用C编译器（当目标平台与当前系统不同时，这通常是关闭的）。不幸的是，这意味着你必须为你将要编译的目标平台安装一个C编译器。安装适当的编译器后，你还需要设置CC环境变量来告诉Go使用哪个编译器。
+安装所需工具有许多方法 - 并且可以使用不同的工具。Fyne开发者推荐的配置是：
+GOOS（目标） CC 提供者 下载 备注 darwin o32-clang osxcross 来自github.com 你还需要安装macOS SDK（下载链接处有指引） windows x86_64-w64-mingw64-gcc mingw64 包管理器 对于macOS使用 homebrew linux gcc 或 x86_64-linux-musl-gcc gcc 或 musl-cross cygwin 或 包管理器 musl-cross可从 homebrew获取，提供linux gcc。你还需要为编译安装X11和mesa头文件。 设置上述环境变量后，你应该能够以通常的方式进行编译。如果进一步出现错误，很可能是由于缺少包。一些目标平台需要安装额外的库或头文件才能成功编译。
+使用虚拟环境 # 由于Linux系统能够轻松地交叉编译到macOS和Windows，因此当你不是从Linux开发时，使用虚拟化环境可能更简单。Docker镜像是复杂构建配置的有用工具，这也适用于Fyne。可以使用不同的工具。Fyne开发者推荐的工具是 fyne-cross。它受到 xgo的启发，并使用基于 golang-cross镜像构建的 docker镜像，该镜像包括了Windows的MinGW编译器和macOS SDK，以及Fyne的需求。
+fyne-cross允许为以下目标构建二进制文件并创建分发包：
+GOOS GOARCH darwin amd64 darwin 386 linux amd64 linux 386 linux arm64 linux arm windows amd64 windows 386 android amd64 android 386 android arm64 android arm ios freebsd amd64 freebsd arm64 注意：iOS编译仅支持在darwin主机上。</description></item></channel></rss>
