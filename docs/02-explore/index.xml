@@ -6,26 +6,26 @@ func setContentToText(c fyne.</description></item><item><title>02. 容器与布�
 由于fyne.Container也是一个fyne.CanvasObject，我们可以将它设置为fyne.Canvas的内容。在这个示例中，我们创建了3个文本对象，然后使用container.NewWithoutLayout()函数将它们放入一个容器中。由于没有设置布局，我们可以像你看到的那样用text2.Move()移动元素。
 package main import ( &amp;#34;image/color&amp;#34; &amp;#34;fyne.io/fyne/v2&amp;#34; &amp;#34;fyne.io/fyne/v2/app&amp;#34; &amp;#34;fyne.io/fyne/v2/canvas&amp;#34; &amp;#34;fyne.io/fyne/v2/container&amp;#34; //&amp;#34;fyne.io/fyne/v2/layout&amp;#34; ) func main() { myApp := app.New() myWindow := myApp.NewWindow(&amp;#34;Container&amp;#34;) green := color.NRGBA{R: 0, G: 180, B: 0, A: 255} text1 := canvas.NewText(&amp;#34;Hello&amp;#34;, green) text2 := canvas.NewText(&amp;#34;There&amp;#34;, green) text2.Move(fyne.NewPos(20, 20)) content := container.NewWithoutLayout(text1, text2) // content := container.New(layout.NewGridLayout(2), text1, text2) myWindow.SetContent(content) myWindow.ShowAndRun() } fyne.Layout实现了一种在容器内组织项目的方法。通过在这个示例中取消注释container.New()行，你改变了容器以使用2列的网格布局。运行此代码并尝试调整窗口大小，看看布局如何自动配置窗口的内容。还要注意，text2的手动位置被布局代码忽略了。
 要了解更多，你可以查看 布局组件。</description></item><item><title>03. 内置控件 Widget</title><link>https://gofyne.poloxue.com/docs/02-explore/03-widgets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/02-explore/03-widgets/</guid><description>标准 Widget (在 widget 包中） # 手风琴（Accordion） # 手风琴显示一个手风琴项目列表。每个项目由一个按钮表示，当点击时会展示一个详细视图。
-按钮（Button） # 按钮小部件有一个文本标签和图标，两者都是可选的。
-卡片（Card） # 卡片小部件以头部和副标题将元素分组，所有这些都是可选的。
-复选框（Check） # 复选框小部件有一个文本标签和一个选中（或未选中）的图标。
-输入框（Entry） # 输入框小部件允许在聚焦时输入简单文本。
-密码输入框小部件隐藏文本输入，并添加一个按钮以显示文本。
+按钮（Button） # 按钮控件有一个文本标签和图标，两者都是可选的。
+卡片（Card） # 卡片控件以头部和副标题将元素分组，所有这些都是可选的。
+复选框（Check） # 复选框控件有一个文本标签和一个选中（或未选中）的图标。
+输入框（Entry） # 输入框控件允许在聚焦时输入简单文本。
+密码输入框控件隐藏文本输入，并添加一个按钮以显示文本。
 文件图标（FileIcon） # 文件图标为各种类型的文件提供有用的标准图标。它显示文件类型的指示图标并显示文件类型的扩展名。
-表单（Form） # 表单小部件是一个两列网格，每行有一个标签和一个小部件（通常是输入）。如果应该显示任何表单控制按钮，则网格的最后一行将包含它们。
-超链接（Hyperlink） # 超链接小部件是一个具有适当填充和布局的文本组件。点击时，URL会在默认网络浏览器中打开。
-图标（Icon） # 图标小部件是一个基本的图像组件，加载资源以匹配主题。
-标签（Label） # 标签小部件是一个具有适当填充和布局的标签组件。
-进度条（Progress bar） # 进度条小部件创建一个表示进度的水平面板。
-无限进度条小部件创建一个表示无限等待的水平面板。一个无限进度条会重复从0%循环到100%，直到调用Stop()。
-单选组（RadioGroup） # 单选组小部件有一个文本标签列表和每个旁边的单选检查图标。
-选择（Select） # 选择小部件有一个选项列表，显示当前选项，并在点击时触发一个事件函数。
-选择输入（SelectEntry） # 选择输入小部件在选择小部件中添加了一个可编辑组件。用户可以选择一个选项或输入自己的值。
-分隔符（Separator） # 分隔符小部件在其他元素之间显示一条分隔线。
-滑块（Slider） # 滑块是一个可以在两个固定值之间滑动的小部件。
+表单（Form） # 表单控件是一个两列网格，每行有一个标签和一个控件（通常是输入）。如果应该显示任何表单控制按钮，则网格的最后一行将包含它们。
+超链接（Hyperlink） # 超链接控件是一个具有适当填充和布局的文本组件。点击时，URL会在默认网络浏览器中打开。
+图标（Icon） # 图标控件是一个基本的图像组件，加载资源以匹配主题。
+标签（Label） # 标签控件是一个具有适当填充和布局的标签组件。
+进度条（Progress bar） # 进度条控件创建一个表示进度的水平面板。
+无限进度条控件创建一个表示无限等待的水平面板。一个无限进度条会重复从0%循环到100%，直到调用Stop()。
+单选组（RadioGroup） # 单选组控件有一个文本标签列表和每个旁边的单选检查图标。
+选择（Select） # 选择控件有一个选项列表，显示当前选项，并在点击时触发一个事件函数。
+选择输入（SelectEntry） # 选择输入控件在选择控件中添加了一个可编辑组件。用户可以选择一个选项或输入自己的值。
+分隔符（Separator） # 分隔符控件在其他元素之间显示一条分隔线。
+滑块（Slider） # 滑块是一个可以在两个固定值之间滑动的控件。
 文本网格（TextGrid） # 文本网格是一个等宽的字符网格。这是设计用来被文本编辑器、代码预览或终端仿真器使用的。
-工具栏（Toolbar） # 工具栏小部件创建一个水平的工具按钮列表。
-集合小部件（在widget包中） # 集合小部件提供高级缓存功能，以提供大量数据的高性能渲染。这确实导致了更复杂的构造器，但对于它启用的结果来说是一个好平衡。这些小部件中的每一个都使用了一系列回调，最小集由它们的构造函数定义，其中包括数据大小，可以重用的模板项目的创建，以及将数据应用到即将添加到显示中的小部件的函数。
+工具栏（Toolbar） # 工具栏控件创建一个水平的工具按钮列表。
+集合控件（在widget包中） # 集合控件提供高级缓存功能，以提供大量数据的高性能渲染。这确实导致了更复杂的构造器，但对于它启用的结果来说是一个好平衡。这些控件中的每一个都使用了一系列回调，最小集由它们的构造函数定义，其中包括数据大小，可以重用的模板项目的创建，以及将数据应用到即将添加到显示中的控件的函数。
 列表（List） # 列表提供了许多子项的高性能垂直滚动。</description></item><item><title>04. 布局组件</title><link>https://gofyne.poloxue.com/docs/02-explore/04-layouts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/02-explore/04-layouts/</guid><description>布局组件 # 水平盒（HBox） # 水平盒将项目以水平行的方式排列。容器中的每个元素将具有相同的高度（容器中最高项目的高度），并且对象将按其最小宽度左对齐。
 垂直盒（VBox） # 垂直盒将项目以垂直列的方式排列。容器中的每个元素将具有相同的宽度（容器中最宽项目的宽度），并且对象将按其最小高度顶部对齐。
 居中（Center） # 居中布局将所有容器元素定位在容器的中心。每个对象都将设置为其最小尺寸。
