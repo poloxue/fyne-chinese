@@ -7,12 +7,11 @@ Windows 从 下载页面下载Go并按照说明安装 为Windows安装以下测�
 一个简单的应用程序从使用app.New()创建一个应用实例开始，然后使用app.NewWindow()打开一个窗口。接着定义一个小部件树，并使用窗口上的SetContent()将其设置为主内容。然后通过在窗口上调用ShowAndRun()来显示应用UI。
 package main import ( &amp;#34;fyne.io/fyne/v2/app&amp;#34; &amp;#34;fyne.io/fyne/v2/widget&amp;#34; ) func main() { a := app.New() w := a.NewWindow(&amp;#34;Hello World&amp;#34;) w.SetContent(widget.NewLabel(&amp;#34;Hello World!&amp;#34;)) w.ShowAndRun() } 上面的代码可以使用命令go build .进行构建，然后通过运行hello命令或双击图标来执行。你也可以跳过编译步骤，直接使用go run ..来运行代码。
 无论采取哪种方法，都会显示一个窗口，看起来像这样：
-Hello Window
 如果你更喜欢浅色主题，只需设置环境变量FYNE_THEME=light，你就会得到：
-Hello Light Theme
-这就是入门的全部内容了。要了解更多，你可以阅读完整的API文档。</description></item><item><title>03. 运行 Fyne Demo</title><link>https://gofyne.poloxue.com/docs/01-started/03-demo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/01-started/03-demo/</guid><description>运行 Fyne Demo # 如果你想在开始编写自己的应用程序之前看到Fyne工具包的实际效果，你可以查看我们的演示应用程序。
+这就是入门的全部内容了。要了解更多，你可以阅读完整的 API文档。</description></item><item><title>03. 运行 Fyne Demo</title><link>https://gofyne.poloxue.com/docs/01-started/03-demo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/01-started/03-demo/</guid><description>运行 Fyne Demo # 如果你想在开始编写自己的应用程序之前看到Fyne工具包的实际效果，你可以查看我们的演示应用程序。
 运行 # 如果愿意，你可以使用以下命令直接运行演示（需要Go 1.16或更高版本）：
-go run fyne.io/fyne/v2/cmd/fyne_demo@latest 对于早期版本的Go，你需要使用以下命令：
+go run fyne.io/fyne/v2/cmd/fyne_demo@latest 效果图：
+对于早期版本的Go，你需要使用以下命令：
 go run fyne.io/fyne/v2/cmd/fyne_demo 通过浏览应用的不同标签，你可以看到Fyne工具包的所有功能。
 安装 # 你可以将该应用安装为计算机上的图形应用程序，就像所有其他应用程序一样。我们有一个有用的fyne工具可以为你完成这项工作。首先，你需要安装该工具：
 go install fyne.io/fyne/v2/cmd/fyne@latest 之后，你可以简单地打包并安装演示应用程序：
