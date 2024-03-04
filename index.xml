@@ -13,17 +13,9 @@ CreateItem 回调返回一个新的模板对象。当小部件呈现时，这将
 package main import ( &amp;#34;fyne.io/fyne/v2&amp;#34; &amp;#34;fyne.io/fyne/v2/app&amp;#34; &amp;#34;fyne.io/fyne/v2/widget&amp;#34; ) var data = []string{&amp;#34;a&amp;#34;, &amp;#34;string&amp;#34;, &amp;#34;list&amp;#34;} func main() { myApp := app.New() myWindow := myApp.NewWindow(&amp;#34;列表小部件&amp;#34;) list := widget.NewList( func() int { return len(data) }, func() fyne.CanvasObject { return widget.NewLabel(&amp;#34;template&amp;#34;) }, func(i widget.ListItemID, o fyne.CanvasObject) { o.(*widget.Label).SetText(data[i]) }) myWindow.</description></item><item><title>01. 安装指南</title><link>https://gofyne.poloxue.com/docs/01-started/01-index/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/01-started/01-index/</guid><description>安装指南 # 使用 Fyne 工具包构建跨平台应用程序非常简单，但在开始之前需要安装一些工具。如果您的计算机已经为Go开发设置好了，以下步骤可能不是必需的，但我们建议您阅读一下您操作系统的提示，以防万一。如果本教程后面的步骤出现问题，那么您应该重新检查以下的先决条件。
 先决条件 # Fyne需要3个基本元素：Go工具（至少版本1.12）、一个C编译器（用于与系统图形驱动连接）和一个系统图形驱动。根据您的操作系统，安装指令会有所不同，请选择下面适合您的选项卡查看安装指令。
 请注意，这些步骤仅用于开发 - 您的Fyne应用不需要为最终用户安装任何设置或依赖！
-下载 # 使用Go模块（Go 1.16及更高版本要求），在使用包之前需要设置模块。
-Go模块（适用于Go 1.16或更新版本） # 如果您不使用模块或您的模块已经初始化，可以跳过此步骤到下一个步骤。运行以下命令并将MODULE_NAME替换为您偏好的模块名（应在为您的应用程序专门创建的新文件夹中调用）。
-$ cd myapp $ go mod init MODULE_NAME 现在您需要下载Fyne模块和辅助工具。使用以下命令完成：
-$ go get fyne.io/fyne/v2@latest $ go install fyne.io/fyne/v2/cmd/fyne@latest 如果您不确定Go模块如何工作，考虑阅读[教程：创建一个Go模块]。
-旧版Go安装 # 使用旧版Go发布安装Fyne工具包和辅助工具，只需执行go get命令：
-$ go get fyne.io/fyne/v2 $ go get fyne.io/fyne/v2/cmd/fyne 检查您的安装 # 在编写应用或运行示例之前，您可以使用Fyne安装工具检查您的安装。只需从链接下载适合您计算机的应用并运行它，您应该看到类似以下屏幕的内容：
-如果您的安装有任何问题，请查看故障排除部分以获取提示。
-运行演示 # 如果您在开始编写自己的应用程序之前想看看Fyne工具包的实际运行情况，您可以通过执行以下命令在您的计算机上运行我们的演示应用：
-$ go run fyne.io/fyne/v2/cmd/fyne_demo@latest 请注意，首次运行需要编译一些C代码，因此可能比平时需要更长的时间。后续构建会重用缓存，将会快得多。
-旧版Go版本 # 要在旧版Go上运行演示，只需执行以下命令：
-$ go run fyne.io/fyne/v2/cmd/fyne_demo 安装 # 如果您愿意，您也可以使用以下命令安装演示（需要Go 1.</description></item><item><title>01. 布局与控件大小</title><link>https://gofyne.poloxue.com/docs/10-faq/01-layout/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/10-faq/01-layout/</guid><description>布局与控件大小 # 移动和调整大小 # 问：我如何将我的小部件移动到不同的位置或调整其大小？
+如下的 termux 是用于在 Android 设备上构建 Fyne 应用，无 PC 要求。
+Windows 从 下载页面下载Go并按照说明安装 为Windows安装以下测试过的C编译器之一： MSYS2配合MingW-w64 - msys2.org TDM-GCC - tdm-gcc.tdragon.net Cygwin - cygwin.com 在Windows上，您的图形驱动程序已经安装好了，但建议确保它们是最新的。 使用MSYS2（推荐）的安装步骤如下：
+从 msys2.org安装MSYS2 安装完成后不要使用打开的MSYS终端 从开始菜单打开“MSYS2 MinGW 64位” 执行以下命令（如果询问安装选项，请确保选择“全部”）： $ pacman -Syu $ pacman -S git mingw-w64-x86_64-toolchain 您需要将 /c/Program\ Files/Go/bin和 ~/Go/bin 添加到您的 $PATH 中，对于MSYS2，您可以将以下命令粘贴到终端中： $ echo &amp;#34;export PATH=\$PATH:/c/Program\ Files/Go/bin:~/Go/bin&amp;#34; &amp;gt;&amp;gt; ~/.bashrc 为了让编译器在其他终端上工作，您需要设置Windows的%PATH%变量，以便找到这些工具。进入“编辑系统环境变量”控制面板，点击“高级”，并将“C:\msys64\mingw64\bin”添加到路径列表中。 MacOS 从 下载页面下载Go并按照说明进行安装。 从 Mac App Store安装Xcode。 通过打开终端窗口并输入以下命令来设置Xcode命令行工具：xcode-select --install。 在macOS上，图形驱动程序将已经安装。 Linux 您需要使用包管理器安装Go、gcc和图形库头文件，以下命令之一可能会起作用。</description></item><item><title>01. 布局与控件大小</title><link>https://gofyne.poloxue.com/docs/10-faq/01-layout/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gofyne.poloxue.com/docs/10-faq/01-layout/</guid><description>布局与控件大小 # 移动和调整大小 # 问：我如何将我的小部件移动到不同的位置或调整其大小？
 答： Fyne 应用中元素的位置和大小由它们所在的容器的布局控制。如果你的 UI 元素太小，请考虑使用不同的 布局或容器。
 一个新的Window会扩展传递给SetContent()的任何元素以填满它的大小。每次你向此添加一个容器时，它都会根据布局划分可用空间。像HBox和VBox这样的布局会将内容缩小到其MinSize()以在一个或另一个维度上打包内容。像Max或Border这样的布局会扩展内容以填充空间。通过编写 自定义布局，你可以完全控制容器中的项目。
 问：我的图像为什么这么小？
