@@ -17,4 +17,3 @@ jobs:
           -d '{"event_type": "content-update"}'
         env:
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-
