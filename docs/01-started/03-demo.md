@@ -45,4 +45,4 @@ fyne get fyne.io/fyne/v2/cmd/fyne_demo
 
 ### 探索代码
 
-如果你对任何功能感兴趣，你应该查看源代码或加入社区频道之一。
+如果你对任何功能感兴趣，你应该查看[源码仓库](https://github.com/fyne-io/fyne/tree/master/cmd/fyne_demo)或加入[社区频道](https://fyne.io/#contact)。
