@@ -1,0 +1,27 @@
+baseURL = 'https://www.poloxue.com/gofyne'
+languageCode = 'zh-cn'
+title = 'Go Fyne 中文'
+
+#  information on 'doc' type pages.
+enableGitInfo = true
+
+# disqusShortname = 'gofyne-poloxue-com'
+disableKinds = ['taxonomy']
+
+[modules]
+[[module.imports]]
+  path = 'github.com/alex-shpak/hugo-book'
+
+[params]
+  BookTheme = 'dark'
+  BookToC = true
+  BookLogo = 'logo.png'
+  BookSection = 'docs'
+  BookRepo = 'https://github.com/poloxue/fyne-chinese'
+  BookCommitPath = 'commit'
+  BookEditPath = 'blob/master'
+  BookDateFormat = 'Jan 2, 2006'
+  BookSearch = true
+  BookComments = true
+  BookPortableLinks = true
+  BookServiceWorker = true
