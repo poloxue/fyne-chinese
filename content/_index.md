@@ -11,7 +11,7 @@ Fyne是一个使用Go语言开发的跨平台GUI框架，它通过简单的API�
 
 ![](https://cdn.jsdelivr.net/gh/poloxue/images@gofyne/banner.png)
 
-另外，如发现文档中存在任何错误，可直接评论回复，非常感谢。测哈哈哈！
+另外，如发现文档中存在任何错误，可直接评论回复，非常感谢。测哈哈！
 
 ---
 
