@@ -25,3 +25,4 @@ disableKinds = ['taxonomy']
   BookComments = true
   BookPortableLinks = true
   BookServiceWorker = true
+
