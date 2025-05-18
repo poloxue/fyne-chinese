@@ -10,7 +10,7 @@ weight: 8
 幸运的是，“fyne”应用有一个“package”命令可以自动处理这一切。只需指定目标操作系统和任何所需的元数据（如图标），就会生成适当的包。对于.icns或.ico图标转换将自动完成，所以只需提供.png文件 :)。你需要做的就是已经为目标平台构建了应用程序...
 
 ```bash
-go install fyne.io/fyne/v2/cmd/fyne@latest
+go install fyne.io/tools/cmd/fyne@latest
 fyne package -os darwin -icon myapp.png
 ```
 
